@@ -2,6 +2,12 @@
   (:require [clojure.test :refer :all]
             [project-euler.core :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(deftest euler-1-test
+  (testing "Example problem"
+    (is (= (euler-1 10 3 5)
+           23)))
+  (testing "Actual problem"
+    (is (= (euler-1 1000 3 5)
+           233168))))
+
+; vim: fdm=indent
