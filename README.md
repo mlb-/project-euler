@@ -1,14 +1,14 @@
 # project-euler
 
-A Clojure library designed to ... well, that part is up to you.
+Here are my solutions to Project Euler problems, in Clojure.
 
 ## Usage
 
-FIXME
+Read the source.
 
 ## License
 
-Copyright © 2015 FIXME
+Copyright © 2015 Matthew Batema
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
