@@ -23,4 +23,18 @@
     (is (= (euler-2 (int 4e6))
            4613732))))
 
+(deftest euler-3-test
+  (testing "Prime generation"
+    (is (= (take 11 (#'impl/primes))
+           [2 3 5 7 11 13 17 19 23 29 31])))
+  (testing "Prime factorization"
+    (is (= (#'impl/prime-factorization 13195)
+           [5 7 13 29])))
+  (testing "Test problem"
+    (is (= (euler-3 13195)
+           29)))
+  (testing "Actual problem"
+    (is (= (euler-3 600851475143)
+           6857))))
+
 ; vim: fdm=indent
