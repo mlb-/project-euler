@@ -84,4 +84,12 @@
     (is (= (euler-6 100)
            25164150))))
 
+(deftest euler-7-test
+  (testing "Test problem"
+    (is (= (euler-7 6)
+           13)))
+  (testing "Actual problem"
+    (is (= (euler-7 10001)
+           104743))))
+
 ; vim: fdm=indent

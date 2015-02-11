@@ -144,4 +144,9 @@
          (Math/pow 2) int)
      (square-pyramidal-number n)))
 
+(defn euler-7
+  "What is the nth prime?"
+  [n]
+  (nth (primes) (dec n)))
+
 ; vim: fdm=indent
