@@ -70,4 +70,30 @@
   [number]
   (apply max (prime-factorization number)))
 
+(def ^:private palindromic-number?
+  "Test if a number is palindromic by converting to a sequence of characters,
+  and identifying if the sequence is equivalent to the sequence reversed."
+  (comp (partial apply =)
+        (juxt identity reverse)
+        seq
+        str))
+
+(defn euler-4
+  "Find the largest palindromic product of two three digit numbers.
+
+  P = X + 10Y + 100Z + 1000Z + 10000Y + 100000X
+  P = 1000001X + 10010Y + 1100Z
+  P = 11(9091X + 910Y + 110Z)
+
+  With a single 11, one of the three-digit multiplicands is 11, reducing the
+  search space to three digit numbers divisible by 11 and those which are not."
+  []
+  (->> (for [multiple-of-eleven (range 990 900 -11)
+             not-11-multiple (->> (range 999 900 -1)
+                                  (remove (comp zero?
+                                                #(rem % 11))))]
+         (* multiple-of-eleven not-11-multiple))
+       (filter palindromic-number?)
+       (apply max)))
+
 ; vim: fdm=indent

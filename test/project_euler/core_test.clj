@@ -37,4 +37,14 @@
     (is (= (euler-3 600851475143)
            6857))))
 
+(deftest euler-4-test
+  (testing "Palindronic number"
+    (is (true? (#'impl/palindromic-number? 1221)))
+    (is (true? (#'impl/palindromic-number? 12321)))
+    (is (false? (#'impl/palindromic-number? 123)))
+    (is (false? (#'impl/palindromic-number? 123210))))
+  (testing "Actual problem"
+    (is (= (euler-4)
+           906609))))
+
 ; vim: fdm=indent
