@@ -96,4 +96,27 @@
        (filter palindromic-number?)
        (apply max)))
 
+(defn- greatest-common-divisor
+  "Greatest common divisor, as per Euclid."
+  [a b]
+  (when (= a b)
+    a)
+  (if (> b a)
+    (recur b a)
+    (if (zero? b)
+      a
+      (recur b (rem a b)))))
+
+(defn- least-common-multiple
+  "Least common multiple via greatest common divisor."
+  [a b]
+  (/ (* a b)
+     (greatest-common-divisor a b)))
+
+(defn euler-5
+  "What is the GCD of the integers between (inclusive) 1 and 20?"
+  [n]
+  (reduce least-common-multiple
+          (range 1 (inc n))))
+
 ; vim: fdm=indent

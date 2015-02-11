@@ -47,4 +47,27 @@
     (is (= (euler-4)
            906609))))
 
+(deftest euler-5-test
+  (testing "Greatest common divisor"
+    (is (= (#'impl/greatest-common-divisor 2345 2345)
+           2345)
+        (= (#'impl/greatest-common-divisor 3 0)
+           (#'impl/greatest-common-divisor 0 3)
+           (#'impl/greatest-common-divisor 21 6)
+           (#'impl/greatest-common-divisor 6 21)
+           3)))
+  (testing "Least common multiple"
+    (is (= (#'impl/least-common-multiple 17 17)
+           17))
+    (is (= (#'impl/least-common-multiple 23 7)
+           161))
+    (is (= (#'impl/greatest-common-divisor 21 6)
+           3)))
+  (testing "Test problem"
+    (is (= (euler-5 10)
+           2520)))
+  (testing "Actual problem"
+    (is (= (euler-5 20)
+           232792560))))
+
 ; vim: fdm=indent
