@@ -70,4 +70,18 @@
     (is (= (euler-5 20)
            232792560))))
 
+(deftest euler-6-test
+  (testing "Triangular numbers"
+    (is (= (#'impl/triangle-number 11)
+           66)))
+  (testing "Square pyramidal number"
+    (is (= (#'impl/square-pyramidal-number 11)
+           506)))
+  (testing "Test problem"
+    (is (= (euler-6 10)
+           2640)))
+  (testing "Actual problem"
+    (is (= (euler-6 100)
+           25164150))))
+
 ; vim: fdm=indent

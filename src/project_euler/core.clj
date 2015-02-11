@@ -119,4 +119,29 @@
   (reduce least-common-multiple
           (range 1 (inc n))))
 
+(defn- triangle-number
+  "https://en.wikipedia.org/wiki/Triangular_number"
+  [n]
+  (-> n
+      (* (inc n))
+      (/ 2)))
+
+(defn- square-pyramidal-number
+  "https://en.wikipedia.org/wiki/Square_pyramidal_number"
+  [n]
+  (-> n
+      (* (inc n))
+      (* (-> n
+             (* 2)
+             inc))
+      (/ 6)))
+
+(defn euler-6
+  "Find the difference between the sum of the squares of the first one hundred
+  natural numbers and the square of the sum."
+  [n]
+  (- (-> (triangle-number n)
+         (Math/pow 2) int)
+     (square-pyramidal-number n)))
+
 ; vim: fdm=indent
