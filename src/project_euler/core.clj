@@ -182,4 +182,32 @@
        (apply map *)
        (apply max)))
 
+(defn- power-set
+  "Given a collection, produce its powerset."
+  [coll]
+  (reduce (fn [accumulator element]
+            (concat accumulator
+                    (map #(conj % element) accumulator)))
+          [[]]
+          coll))
+
+(defn- factors
+  "Given the prime factorization of a number, generate its factors."
+  [[:as prime-factorization]]
+  (->> prime-factorization
+       power-set
+       (map (partial reduce *))
+       (apply sorted-set)))
+
+(def ^:private coprime-factors
+  "Given the prime factorization of a number, generate factors that are
+  coprime."
+  (comp butlast
+        (partial drop 1)
+        factors
+        (partial map (comp int
+                           (fn [[base exp]]
+                             (Math/pow base exp))))
+        frequencies))
+
 ; vim: fdm=indent

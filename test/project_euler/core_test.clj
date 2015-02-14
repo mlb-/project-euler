@@ -100,4 +100,15 @@
     (is (= (euler-8 13)
            23514624000))))
 
+(deftest euler-9-test
+  (testing "Power set"
+    (is (= (#'impl/power-set [1 2 3])
+           [[] [1] [2] [1 2] [3] [1 3] [2 3] [1 2 3]])))
+  (testing "Factors"
+    (is (= (#'impl/factors (#'impl/prime-factorization 80))
+           #{1 2 4 5 8 10 16 20 40 80})))
+  (testing "Coprime Factors"
+    (is (= (#'impl/coprime-factors (#'impl/prime-factorization 90))
+           [2 5 9 10 18 45]))))
+
 ; vim: fdm=indent
